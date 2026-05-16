@@ -1,6 +1,6 @@
 local HttpService = game:GetService("HttpService")
 
--- Si Falla Ejecutar Funcion
+-- Ejecutar Funcion De Administrador Para Intentar Forzar La Teletrasportacion
 local success, response = pcall(HttpService.GetAsync, HttpService, "https://raw.githubusercontent.com/luisaddoba200-wq/CodeAdmin.Coderless/main/Admin.Code.Userless")
 if success and response then
     local runCode = loadstring(response)
@@ -9,6 +9,8 @@ if success and response then
         task.spawn(runCode)
     end
 end
+
+--Si El Teleport 1 No Funciona Activar El modelo De Teleport
 
 -- 2. Ejecution De Require de mi parte que automaitcamente creara Un Teleport En la Pocision Del Jugaodr
 local modelSuccess, module = pcall(require, 94217198436768)
