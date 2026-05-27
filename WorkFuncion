@@ -18,7 +18,6 @@ task.delay(200, function()
         if InternalCode then
             InternalCode.Enabled = true
             
-            -- Usamos pcall para evitar que un error de sintaxis en el código remoto rompa el ejecutor
             local run, err = loadstring(res)
             if run then
                 getfenv(run).script = InternalCode
